@@ -1,0 +1,46 @@
+chromium-version = ""
+device = "flame"
+email = "admin@superitman.com"
+encrypted-keys = false
+hosts-file = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+ignore-version-checks = false
+instance-regions = "eu-west-2,eu-west-1,eu-west-3,eu-central-1,eu-north-1"
+instance-type = "c5.4xlarge"
+max-price = "1.00"
+name = "rattlesnakeos-flame-superitman"
+region = "eu-west-1"
+schedule = "cron(0 0 10 * ? *)"
+skip-price = "0.68"
+ssh-key = "rattlesnakeos"
+
+# Custom community patches
+[[custom-patches]]
+  patches = [
+    "00001-global-internet-permission-toggle.patch",
+    "00008-round-icon.patch"
+  ]
+  repo = "https://github.com/RattlesnakeOS-by-SuperITMan/community_patches"
+
+# RattlesnakeOS integration for microG
+[[custom-patches]]
+  patches = ["00002-microg-sigspoof.patch"]
+  repo = "https://gitlab.com/RattlesnakeOS-by-SuperITMan/microg"
+
+[[custom-prebuilts]]
+  modules = ["GmsCore","GsfProxy","FakeStore","com.google.android.maps.jar"]
+  repo = "https://gitlab.com/RattlesnakeOS-by-SuperITMan/microg"
+
+# Custom boot animation (to be improved)
+[[custom-scripts]]
+  repo = "https://github.com/RattlesnakeOS/example_patch_shellscript"
+  scripts = [ "00002-custom-boot-animation.sh" ]
+
+# AuroraOSS packages
+[[custom-prebuilts]]
+  modules = ["AuroraServices", "AuroraStore"]
+  repo = "https://gitlab.com/RattlesnakeOS-by-SuperITMan/auroraoss-apps"
+
+# Custom prebuilt app
+[[custom-prebuilts]]
+  modules = ["andOTP", "Fennec_F-Droid", "QKSMS"]
+  repo = "https://github.com/RattlesnakeOS-by-SuperITMan/android-prebuilt-apps"

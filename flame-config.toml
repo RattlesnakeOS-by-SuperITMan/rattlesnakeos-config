@@ -9,7 +9,7 @@ instance-type = "c5.4xlarge"
 max-price = "1.00"
 name = "rattlesnakeos-flame-superitman"
 region = "eu-west-1"
-schedule = "cron(0 0 10 * ? *)"
+schedule = "cron(0 12 10 * ? *)"
 skip-price = "0.68"
 ssh-key = "rattlesnakeos"
 

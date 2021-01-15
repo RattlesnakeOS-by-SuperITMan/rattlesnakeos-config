@@ -17,9 +17,11 @@ ssh-key = "rattlesnakeos"
 [[custom-patches]]
   patches = [
     "00001-global-internet-permission-toggle.patch",
-    "00008-round-icon.patch"
+    "00002-round-icon.patch",
+    "00004-use-cloudflare-dns.patch"
   ]
   repo = "https://github.com/RattlesnakeOS-by-SuperITMan/community_patches"
+  branch = "11.0"
 
 # RattlesnakeOS integration for microG
 [[custom-patches]]
@@ -44,3 +46,18 @@ ssh-key = "rattlesnakeos"
 [[custom-prebuilts]]
   modules = ["andOTP", "Fennec_F-Droid", "QKSMS"]
   repo = "https://github.com/RattlesnakeOS-by-SuperITMan/android-prebuilt-apps"
+
+# to add a remote line to manifest like this: <remote name="seedvault-app" fetch="https://github.com/seedvault-app/" revision="master" />
+[[custom-manifest-remotes]]
+  name = "seedvault-app"
+  fetch = "https://github.com/seedvault-app/"
+  revision = "master"
+
+# to add a project line to manifest like this: <project path="packages/apps/Seedvault" name="backup" remote="seedvault-app" />
+# you can also add modules here that you want to include into the build process
+# in this example it is adding a really great backup app (https://github.com/seedvault-app/seedvault)
+[[custom-manifest-projects]]
+  path = "packages/apps/Seedvault"
+  name = "seedvault"
+  remote = "seedvault-app"
+  modules = [ "Seedvault" ]
